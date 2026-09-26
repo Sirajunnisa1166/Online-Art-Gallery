@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Login - ArtVista Gallery</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f8f5f0,
+                    #f4dfe5
+                );
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 20px;
+
+        }
+
+
+        /* ================= LOGIN CARD ================= */
+
+        .login-card {
+
+            width: 100%;
+
+            max-width: 430px;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 35px
+                rgba(0, 0, 0, 0.15);
+
+        }
+
+
+        /* ================= LOGO ================= */
+
+        .logo {
+
+            text-align: center;
+
+            font-size: 45px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .brand-name {
+
+            text-align: center;
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #777;
+
+            font-size: 14px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        /* ================= HEADING ================= */
+
+        .login-card h1 {
+
+            text-align: center;
+
+            margin-bottom: 25px;
+
+            font-size: 28px;
+
+        }
+
+
+        /* ================= FORM ================= */
+
+        .form-group {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-weight: bold;
+
+            font-size: 14px;
+
+        }
+
+
+        .form-group input {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+
+        }
+
+
+        .form-group input:focus {
+
+            border-color: #e91e63;
+
+            box-shadow:
+                0 0 5px
+                rgba(233, 30, 99, 0.2);
+
+        }
+
+
+        /* ================= PASSWORD ================= */
+
+        .password-container {
+
+            position: relative;
+
+        }
+
+
+        .password-container input {
+
+            padding-right: 50px;
+
+        }
+
+
+        .toggle-password {
+
+            position: absolute;
+
+            right: 15px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            cursor: pointer;
+
+            font-size: 18px;
+
+        }
+
+
+        /* ================= ERROR ================= */
+
+        .error-message {
+
+            color: #e53935;
+
+            font-size: 13px;
+
+            margin-top: 6px;
+
+            display: none;
+
+        }
+
+
+        .input-error {
+
+            border-color: #e53935 !important;
+
+        }
+
+
+        /* ================= REMEMBER ================= */
+
+        .login-options {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            margin-bottom: 25px;
+
+            font-size: 14px;
+
+        }
+
+
+        .remember {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+        }
+
+
+        .remember input {
+
+            width: auto;
+
+        }
+
+
+        .forgot {
+
+            color: #e91e63;
+
+            text-decoration: none;
+
+        }
+
+
+        .forgot:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        /* ================= LOGIN BUTTON ================= */
+
+        .login-button {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #e91e63;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+
+        .login-button:hover {
+
+            background: #c2185b;
+
+        }
+
+
+        /* ================= SUCCESS MESSAGE ================= */
+
+        .success-message {
+
+            display: none;
+
+            background: #e8f5e9;
+
+            color: #2e7d32;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            margin-bottom: 20px;
+
+            font-size: 14px;
+
+        }
+
+
+        /* ================= DIVIDER ================= */
+
+        .divider {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin: 25px 0;
+
+            color: #999;
+
+            font-size: 13px;
+
+        }
+
+
+        .divider::before,
+        .divider::after {
+
+            content: "";
+
+            flex: 1;
+
+            height: 1px;
+
+            background: #ddd;
+
+        }
+
+
+        /* ================= CREATE ACCOUNT ================= */
+
+        .create-account {
+
+            text-align: center;
+
+            font-size: 14px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .create-account a {
+
+            color: #e91e63;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+        }
+
+
+        .create-account a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        /* ================= BACK HOME ================= */
+
+        .back-home {
+
+            display: block;
+
+            text-align: center;
+
+            color: #555;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+        }
+
+
+        .back-home:hover {
+
+            color: #e91e63;
+
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 500px) {
+
+            .login-card {
+
+                padding: 30px 25px;
+
+            }
+
+            .login-options {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 12px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= LOGIN CARD ================= -->
+
+    <div class="login-card">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            🎨
+
+        </div>
+
+
+        <div class="brand-name">
+
+            ArtVista Gallery
+
+        </div>
+
+
+        <p class="subtitle">
+
+            Welcome back! Login to explore beautiful artworks.
+
+        </p>
+
+
+        <h1>
+
+            Login
+
+        </h1>
+
+
+        <!-- SUCCESS MESSAGE -->
+
+        <div
+            class="success-message"
+            id="successMessage">
+
+            ✓ Login successful! Redirecting...
+
+        </div>
+
+
+        <!-- LOGIN FORM -->
+
+        <form id="loginForm">
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label for="email">
+
+                    Email Address
+
+                </label>
+
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    autocomplete="email">
+
+
+                <p
+                    class="error-message"
+                    id="emailError">
+
+                    Please enter a valid email address.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- PASSWORD -->
+
+            <div class="form-group">
+
+                <label for="password">
+
+                    Password
+
+                </label>
+
+
+                <div class="password-container">
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password">
+
+
+                    <span
+                        class="toggle-password"
+                        id="togglePassword"
+                        onclick="togglePassword()">
+
+                        👁️
+
+                    </span>
+
+                </div>
+
+
+                <p
+                    class="error-message"
+                    id="passwordError">
+
+                    Password must be at least 6 characters.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- OPTIONS -->
+
+            <div class="login-options">
+
+
+                <label class="remember">
+
+                    <input
+                        type="checkbox"
+                        id="remember">
+
+                    Remember me
+
+                </label>
+
+
+                <a
+                    href="#"
+                    class="forgot"
+                    onclick="forgotPassword(event)">
+
+                    Forgot Password?
+
+                </a>
+
+
+            </div>
+
+
+
+            <!-- LOGIN -->
+
+            <button
+                type="submit"
+                class="login-button">
+
+                Login
+
+            </button>
+
+
+        </form>
+
+
+
+        <!-- DIVIDER -->
+
+        <div class="divider">
+
+            OR
+
+        </div>
+
+
+
+        <!-- CREATE ACCOUNT -->
+
+        <div class="create-account">
+
+            Don't have an account?
+
+            <a
+                href="#"
+                onclick="createAccount(event)">
+
+                Create Account
+
+            </a>
+
+        </div>
+
+
+
+        <!-- BACK HOME -->
+
+        <a
+            href="index.html"
+            class="back-home">
+
+            ← Back to Home
+
+        </a>
+
+
+    </div>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+
+        /* ================= PASSWORD SHOW / HIDE ================= */
+
+
+        function togglePassword() {
+
+
+            const password =
+                document.getElementById(
+                    "password"
+                );
+
+
+            const icon =
+                document.getElementById(
+                    "togglePassword"
+                );
+
+
+            if (
+                password.type === "password"
+            ) {
+
+                password.type = "text";
+
+                icon.innerText = "🙈";
+
+            }
+
+            else {
+
+                password.type = "password";
+
+                icon.innerText = "👁️";
+
+            }
+
+        }
+
+
+
+        /* ================= LOGIN VALIDATION ================= */
+
+
+        document
+            .getElementById("loginForm")
+            .addEventListener(
+                "submit",
+                function(event) {
+
+
+                    event.preventDefault();
+
+
+                    /* GET VALUES */
+
+                    const email =
+                        document.getElementById(
+                            "email"
+                        ).value.trim();
+
+
+                    const password =
+                        document.getElementById(
+                            "password"
+                        ).value;
+
+
+                    /* GET ERROR ELEMENTS */
+
+                    const emailError =
+                        document.getElementById(
+                            "emailError"
+                        );
+
+
+                    const passwordError =
+                        document.getElementById(
+                            "passwordError"
+                        );
+
+
+                    const emailInput =
+                        document.getElementById(
+                            "email"
+                        );
+
+
+                    const passwordInput =
+                        document.getElementById(
+                            "password"
+                        );
+
+
+                    /* RESET ERRORS */
+
+                    emailError.style.display =
+                        "none";
+
+                    passwordError.style.display =
+                        "none";
+
+
+                    emailInput.classList.remove(
+                        "input-error"
+                    );
+
+
+                    passwordInput.classList.remove(
+                        "input-error"
+                    );
+
+
+                    let valid = true;
+
+
+                    /* EMAIL VALIDATION */
+
+                    const emailPattern =
+                        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+                    if (
+                        email === "" ||
+                        !emailPattern.test(email)
+                    ) {
+
+                        emailError.style.display =
+                            "block";
+
+                        emailInput.classList.add(
+                            "input-error"
+                        );
+
+                        valid = false;
+
+                    }
+
+
+                    /* PASSWORD VALIDATION */
+
+                    if (
+                        password.length < 6
+                    ) {
+
+                        passwordError.style.display =
+                            "block";
+
+                        passwordInput.classList.add(
+                            "input-error"
+                        );
+
+                        valid = false;
+
+                    }
+
+
+                    /* IF INVALID */
+
+                    if (!valid) {
+
+                        return;
+
+                    }
+
+
+                    /* SUCCESS */
+
+                    const successMessage =
+                        document.getElementById(
+                            "successMessage"
+                        );
+
+
+                    successMessage.style.display =
+                        "block";
+
+
+                    /* SAVE LOGIN STATUS */
+
+                    localStorage.setItem(
+                        "artvistaLoggedIn",
+                        "true"
+                    );
+
+
+                    /* REDIRECT */
+
+                    setTimeout(
+                        function() {
+
+                            window.location.href =
+                                "index.html";
+
+                        },
+                        1500
+                    );
+
+
+                }
+            );
+
+
+
+        /* ================= FORGOT PASSWORD ================= */
+
+
+        function forgotPassword(event) {
+
+            event.preventDefault();
+
+
+            alert(
+                "Password reset feature will be available soon."
+            );
+
+        }
+
+
+
+        /* ================= CREATE ACCOUNT ================= */
+
+
+        function createAccount(event) {
+
+            event.preventDefault();
+
+
+            alert(
+                "Account registration feature will be available soon."
+            );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

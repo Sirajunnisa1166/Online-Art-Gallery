@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>ArtVista Gallery - Home</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f5f0;
+            color: #333;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+
+            background: #2c2c2c;
+
+            padding: 18px 50px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+        }
+
+
+        .logo {
+
+            color: white;
+
+            font-size: 25px;
+
+            font-weight: bold;
+
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            gap: 25px;
+
+            list-style: none;
+
+        }
+
+
+        .nav-links a {
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color: #f4c2c2;
+
+        }
+
+
+        /* CART */
+
+        .cart-count {
+
+            background: #e91e63;
+
+            color: white;
+
+            padding: 3px 8px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            margin-left: 3px;
+
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+
+            min-height: 650px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 80px 20px;
+
+            background:
+
+                linear-gradient(
+                    rgba(44, 44, 44, 0.55),
+                    rgba(44, 44, 44, 0.55)
+                ),
+
+                url("https://images.unsplash.com/photo-1549490349-8643362247b5");
+
+            background-size: cover;
+
+            background-position: center;
+
+            color: white;
+
+            animation: heroAppear 1.2s ease;
+
+        }
+
+
+        @keyframes heroAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform: scale(1.03);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: scale(1);
+
+            }
+
+        }
+
+
+        .hero-content {
+
+            max-width: 800px;
+
+        }
+
+
+        .hero-content h1 {
+
+            font-size: 60px;
+
+            margin-bottom: 20px;
+
+            animation: slideDown 1s ease;
+
+        }
+
+
+        @keyframes slideDown {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(-30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+        .hero-content p {
+
+            font-size: 20px;
+
+            line-height: 1.7;
+
+            margin-bottom: 35px;
+
+            animation: slideUp 1s ease;
+
+        }
+
+
+        @keyframes slideUp {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+        /* HERO BUTTON */
+
+        .hero-button {
+
+            display: inline-block;
+
+            padding: 15px 30px;
+
+            background: #e91e63;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 30px;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+
+        }
+
+
+        .hero-button:hover {
+
+            background: #c2185b;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(0, 0, 0, 0.25);
+
+        }
+
+
+        /* ================= SECTION ================= */
+
+        .section {
+
+            width: 90%;
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 70px 0;
+
+        }
+
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .section-title h2 {
+
+            font-size: 35px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .section-title p {
+
+            color: #777;
+
+        }
+
+
+        /* ================= FEATURED ================= */
+
+        .featured {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 30px;
+
+        }
+
+
+        .art-card {
+
+            background: white;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0, 0, 0, 0.1);
+
+            transition: 0.4s;
+
+        }
+
+
+        .art-card:hover {
+
+            transform:
+                translateY(-10px);
+
+            box-shadow:
+                0 12px 30px
+                rgba(0, 0, 0, 0.15);
+
+        }
+
+
+        .art-card img {
+
+            width: 100%;
+
+            height: 250px;
+
+            object-fit: cover;
+
+            transition: 0.4s;
+
+        }
+
+
+        .art-card:hover img {
+
+            transform: scale(1.05);
+
+        }
+
+
+        .art-info {
+
+            padding: 20px;
+
+        }
+
+
+        .art-info h3 {
+
+            margin-bottom: 8px;
+
+            font-size: 21px;
+
+        }
+
+
+        .artist {
+
+            color: #777;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .price {
+
+            font-size: 19px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .view-button {
+
+            display: inline-block;
+
+            padding: 10px 18px;
+
+            border: 1px solid #333;
+
+            border-radius: 7px;
+
+            color: #333;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+
+        }
+
+
+        .view-button:hover {
+
+            background: #333;
+
+            color: white;
+
+        }
+
+
+        /* ================= ABOUT ================= */
+
+        .about-section {
+
+            background: white;
+
+            padding: 70px 20px;
+
+        }
+
+
+        .about-content {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            text-align: center;
+
+        }
+
+
+        .about-content h2 {
+
+            font-size: 35px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .about-content p {
+
+            color: #666;
+
+            line-height: 1.8;
+
+            font-size: 17px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .about-button {
+
+            display: inline-block;
+
+            background: #e91e63;
+
+            color: white;
+
+            padding: 13px 25px;
+
+            border-radius: 25px;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+
+        }
+
+
+        .about-button:hover {
+
+            background: #c2185b;
+
+            transform: translateY(-3px);
+
+        }
+
+
+        /* ================= FEATURES ================= */
+
+        .features {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 30px;
+
+            text-align: center;
+
+        }
+
+
+        .feature-card {
+
+            background: white;
+
+            padding: 35px 25px;
+
+            border-radius: 15px;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 5px 15px
+                rgba(0, 0, 0, 0.07);
+
+        }
+
+
+        .feature-card:hover {
+
+            transform:
+                translateY(-8px);
+
+        }
+
+
+        .feature-icon {
+
+            font-size: 45px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .feature-card h3 {
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .feature-card p {
+
+            color: #777;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        .footer {
+
+            background: #2c2c2c;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+        }
+
+
+        .footer h2 {
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .footer p {
+
+            color: #ddd;
+
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .featured {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .features {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .navbar {
+
+                padding:
+                    18px 25px;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .navbar {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+            }
+
+
+            .nav-links {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 15px;
+
+            }
+
+
+            .hero {
+
+                min-height: 550px;
+
+            }
+
+
+            .hero-content h1 {
+
+                font-size: 40px;
+
+            }
+
+
+            .hero-content p {
+
+                font-size: 16px;
+
+            }
+
+
+            .featured {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .features {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .section-title h2 {
+
+                font-size: 28px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+
+        <div class="logo">
+
+            🎨 ArtVista Gallery
+
+        </div>
+
+
+        <ul class="nav-links">
+
+
+            <li>
+
+                <a href="index.html">
+
+                    Home
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="gallery.html">
+
+                    Gallery
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="artists.html">
+
+                    Artists
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="about.html">
+
+                    About Us
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="contact.html">
+
+                    Contact
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="login.html">
+
+                    Login
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="cart.html">
+
+                    🛒 Cart
+
+                    <span
+                        class="cart-count"
+                        id="cartCount">
+
+                        0
+
+                    </span>
+
+                </a>
+
+            </li>
+
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+
+        <div class="hero-content">
+
+
+            <h1>
+
+                Discover the Beauty of Art
+
+            </h1>
+
+
+            <p>
+
+                Explore unique artworks,
+                discover talented artists,
+                and bring creativity into your world.
+
+            </p>
+
+
+            <a
+                href="gallery.html"
+                class="hero-button">
+
+                Explore Gallery →
+
+            </a>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= FEATURED ================= -->
+
+    <section class="section">
+
+
+        <div class="section-title">
+
+
+            <h2>
+
+                Featured Artworks
+
+            </h2>
+
+
+            <p>
+
+                Discover some of our most popular artworks.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="featured">
+
+
+            <!-- ARTWORK 1 -->
+
+            <div class="art-card">
+
+
+                <img
+                    src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5"
+                    alt="Sunset Dreams">
+
+
+                <div class="art-info">
+
+
+                    <h3>
+
+                        Sunset Dreams
+
+                    </h3>
+
+
+                    <p class="artist">
+
+                        By Ananya
+
+                    </p>
+
+
+                    <p class="price">
+
+                        ₹2,500
+
+                    </p>
+
+
+                    <a
+                        href="artwork.html?id=sunset"
+                        class="view-button">
+
+                        View Artwork
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ARTWORK 2 -->
+
+            <div class="art-card">
+
+
+                <img
+                    src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342"
+                    alt="Floral Beauty">
+
+
+                <div class="art-info">
+
+
+                    <h3>
+
+                        Floral Beauty
+
+                    </h3>
+
+
+                    <p class="artist">
+
+                        By Riya
+
+                    </p>
+
+
+                    <p class="price">
+
+                        ₹3,200
+
+                    </p>
+
+
+                    <a
+                        href="artwork.html?id=floral"
+                        class="view-button">
+
+                        View Artwork
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ARTWORK 3 -->
+
+            <div class="art-card">
+
+
+                <img
+                    src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968"
+                    alt="Abstract Emotions">
+
+
+                <div class="art-info">
+
+
+                    <h3>
+
+                        Abstract Emotions
+
+                    </h3>
+
+
+                    <p class="artist">
+
+                        By Rahul
+
+                    </p>
+
+
+                    <p class="price">
+
+                        ₹4,500
+
+                    </p>
+
+
+                    <a
+                        href="artwork.html?id=abstract"
+                        class="view-button">
+
+                        View Artwork
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about-section">
+
+
+        <div class="about-content">
+
+
+            <h2>
+
+                Welcome to ArtVista Gallery
+
+            </h2>
+
+
+            <p>
+
+                ArtVista Gallery is an online platform
+                created to connect art lovers with
+                talented artists. Explore paintings,
+                sketches, digital art and abstract
+                creations all in one place.
+
+            </p>
+
+
+            <a
+                href="about.html"
+                class="about-button">
+
+                Learn More About Us
+
+            </a>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= WHY CHOOSE US ================= -->
+
+    <section class="section">
+
+
+        <div class="section-title">
+
+
+            <h2>
+
+                Why Choose ArtVista?
+
+            </h2>
+
+
+            <p>
+
+                Everything you need to enjoy the world of art.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="features">
+
+
+            <div class="feature-card">
+
+
+                <div class="feature-icon">
+
+                    🎨
+
+                </div>
+
+
+                <h3>
+
+                    Unique Artwork
+
+                </h3>
+
+
+                <p>
+
+                    Discover creative and
+                    unique artworks from
+                    talented artists.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+
+                <div class="feature-icon">
+
+                    👩‍🎨
+
+                </div>
+
+
+                <h3>
+
+                    Talented Artists
+
+                </h3>
+
+
+                <p>
+
+                    Explore artwork created
+                    by passionate and
+                    talented artists.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+
+                <div class="feature-icon">
+
+                    🛒
+
+                </div>
+
+
+                <h3>
+
+                    Easy Shopping
+
+                </h3>
+
+
+                <p>
+
+                    Add your favorite artworks
+                    to the cart and enjoy
+                    a simple online experience.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+
+        <h2>
+
+            🎨 ArtVista Gallery
+
+        </h2>
+
+
+        <p>
+
+            © 2026 ArtVista Gallery.
+            All Rights Reserved.
+
+        </p>
+
+
+    </footer>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+
+        /* ================= CART COUNT ================= */
+
+
+        function updateCartCount() {
+
+
+            let cart = JSON.parse(
+
+                localStorage.getItem(
+                    "artvistaCart"
+                )
+
+            ) || [];
+
+
+            let totalItems =
+                cart.reduce(
+
+                    (total, item) =>
+                        total + item.quantity,
+
+                    0
+
+                );
+
+
+            document.getElementById(
+                "cartCount"
+            ).innerText =
+                totalItems;
+
+        }
+
+
+        /* ================= PAGE LOAD ================= */
+
+
+        document.addEventListener(
+
+            "DOMContentLoaded",
+
+            function() {
+
+                updateCartCount();
+
+            }
+
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
